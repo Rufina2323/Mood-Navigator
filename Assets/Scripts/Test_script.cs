@@ -11,12 +11,10 @@ public class Test_script : MonoBehaviour
     public Button[] answerBttns = new Button[3];
     public Text interp;
 
-
     List<object> qList;
     QuestionList crntQ;
     int randQ;
     int a, b, c;
-
 
     public void BackTest()
     {
@@ -33,6 +31,7 @@ public class Test_script : MonoBehaviour
         if (!headPanel.GetComponent<Animator>().enabled) headPanel.GetComponent<Animator>().enabled = true;
         else headPanel.GetComponent<Animator>().SetTrigger("Out");
     }
+
     public void OnClickPlay()
     {
         a = 0;
@@ -52,6 +51,7 @@ public class Test_script : MonoBehaviour
         answerBttns[2].GetComponent<Image>().enabled = true;
         answersText[2].GetComponent<Text>().enabled = true;
     }
+
     void questionGenerate()
     {
         if (qList.Count > 0)
@@ -93,6 +93,7 @@ public class Test_script : MonoBehaviour
             print(c);
         }
     }
+
     IEnumerator animBttns()
     {
         yield return new WaitForSeconds(1);
@@ -114,7 +115,6 @@ public class Test_script : MonoBehaviour
         if (answersText[index].text.ToString() == crntQ.answers[2]) c++;
         qList.RemoveAt(randQ);
         questionGenerate();
-        //questionGenerate();
     }
 }
 [System.Serializable]
