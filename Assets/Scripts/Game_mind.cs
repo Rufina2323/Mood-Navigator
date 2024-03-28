@@ -12,12 +12,10 @@ public class Game_mind : MonoBehaviour
     public Button[] answerBttns = new Button[3];
     public Text interp;
 
-
     List<object> qList;
     QuestList crntQ;
     int randQ;
     int count = 0;
-
 
     public void BackTest()
     {
@@ -35,6 +33,7 @@ public class Game_mind : MonoBehaviour
         if (!head1Panel.GetComponent<Animator>().enabled) head1Panel.GetComponent<Animator>().enabled = true;
         else head1Panel.GetComponent<Animator>().SetTrigger("Out1");
     }
+
     public void OnClickPlay()
     {
         qList = new List<object>(quests);
@@ -52,6 +51,7 @@ public class Game_mind : MonoBehaviour
         answerBttns[2].GetComponent<Image>().enabled = true;
         answersText[2].GetComponent<Text>().enabled = true;
     }
+
     void questionGenerate()
     {
         if (qList.Count > 0)
@@ -92,6 +92,7 @@ public class Game_mind : MonoBehaviour
             if (count == 0) interp.text = "Вы дали 0% правильных ответов. Попробуйте почитать полезную информацию про эмоции.";
         }
     }
+
     IEnumerator animBttns()
     {
         yield return new WaitForSeconds(1);
@@ -111,7 +112,6 @@ public class Game_mind : MonoBehaviour
         if (answersText[index].text.ToString() == crntQ.answers[0]) count++;
         qList.RemoveAt(randQ);
         questionGenerate();
-        //questionGenerate();
     }
 }
 [System.Serializable]
